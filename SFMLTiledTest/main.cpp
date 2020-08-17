@@ -23,7 +23,7 @@ int main()
         }
 
         window.clear();
-        game.loop(window);
+        game.render(window);
         window.display();
     }
 
