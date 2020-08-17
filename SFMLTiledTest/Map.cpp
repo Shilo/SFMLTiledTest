@@ -6,7 +6,8 @@
 #include "SFMLOrthogonalLayer.hpp"
 #include "Utils.h"
 
-bool Map::load(const std::string& fileName) {
+bool Map::load(const std::string& fileName)
+{
     loaded = map.load("assets/maps/"+ fileName);
     if (!loaded) {
         Utils::log("Error: Map failed to load.");
@@ -14,7 +15,8 @@ bool Map::load(const std::string& fileName) {
     return loaded;
 }
 
-void Map::render(sf::RenderWindow& window) {
+void Map::render(sf::RenderWindow& window)
+{
     if (!loaded) return;
 
     const auto& layers = map.getLayers();

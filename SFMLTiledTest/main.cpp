@@ -1,31 +1,42 @@
-#include <SFML/Graphics.hpp>
 #include "Utils.h"
 #include "Game.h"
+#include "Window.h"
+
+const bool FULLSCREEN = true;
+const float ZOOM_FACTOR = 0.5f;
+
+Window *window;
+Game *game;
+
+void init()
+{
+    window = new Window(FULLSCREEN, ZOOM_FACTOR);
+    game = new Game();
+}
+
+void render()
+{
+    (*window).render();
+    (*game).render((*window));
+    (*window).display();
+}
+
+void destroy()
+{
+    delete game;
+    delete window;
+}
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode().getDesktopMode(), "SFML Tiled Test", sf::Style::None);
+    init();
 
-    Game game;
-
-    while (window.isOpen())
+    while ((*window).isOpen())
     {
-        sf::Event event;
-        while (window.pollEvent(event))
-        {
-            if (event.type == sf::Event::Closed || event.key.code == sf::Keyboard::Escape)
-                window.close();
-            if (event.type == sf::Event::Resized)
-            {
-                sf::FloatRect visibleArea(0, 0, event.size.width, event.size.height);
-                window.setView(sf::View(visibleArea));
-            }
-        }
-
-        window.clear();
-        game.render(window);
-        window.display();
+        render();
     }
+    
+    destroy();
 
     return 0;
 }

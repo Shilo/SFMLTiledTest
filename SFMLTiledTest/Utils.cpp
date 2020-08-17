@@ -2,7 +2,8 @@
 #include <stdio.h>
 #include <stdarg.h>
 
-void Utils::log(const char* format, ...) {
+void Utils::log(const char* format, ...)
+{
     va_list args;
     va_start(args, format);
     vfprintf(stdout, format, args);

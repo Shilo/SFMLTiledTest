@@ -2,10 +2,12 @@
 #include <SFML/Graphics.hpp>
 #include "Utils.h"
 
-Game::Game() {
+Game::Game()
+{
     map.load("island.tmx");
 }
 
-void Game::render(sf::RenderWindow &window) {
+void Game::render(sf::RenderWindow &window)
+{
     map.render(window);
 }
