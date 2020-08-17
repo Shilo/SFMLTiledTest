@@ -1,11 +1,12 @@
 #include <SFML/Graphics.hpp>
+#include "Utils.h"
+#include "Game.h"
 
 int main()
 {
     sf::RenderWindow window(sf::VideoMode(1024, 768), "SFML Tiled Test");
 
-    sf::CircleShape shape(100.f);
-    shape.setFillColor(sf::Color::Green);
+    Game game;
 
     while (window.isOpen())
     {
@@ -17,7 +18,7 @@ int main()
         }
 
         window.clear();
-        window.draw(shape);
+        game.loop(window);
         window.display();
     }
 
