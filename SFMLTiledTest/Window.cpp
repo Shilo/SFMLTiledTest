@@ -3,19 +3,24 @@
 #include "Utils.h"
 #include "Game.h"
 
+const std::string& VERSION = "1.0";
+const std::string& TITLE = "SFML Tiled Test - " + VERSION;
+
 Window::Window()
    : sf::RenderWindow(sf::VideoMode().getDesktopMode(),
-        "SFML Tiled Test",
+       TITLE,
         sf::Style::None)
 {
+    title = TITLE;
     update();
 }
 
 Window::Window(bool fullscreen, float zoomFactor)
     : sf::RenderWindow(fullscreen ? sf::VideoMode().getDesktopMode() : sf::VideoMode(1024, 768),
-        "SFML Tiled Test",
+        TITLE,
         fullscreen ? sf::Style::None : sf::Style::Default)
 {
+    title = TITLE;
     this->zoomFactor = zoomFactor;
     update();
 }

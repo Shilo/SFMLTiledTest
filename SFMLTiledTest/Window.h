@@ -8,6 +8,7 @@ class Window : public sf::RenderWindow
 public:
 	Game *game;
 	float zoomFactor = 1.0f;
+	std::string title;
 
 	Window();
 	Window(bool fullscreen, float zoomFactor);

@@ -12,7 +12,7 @@ public:
 
 	Game(Window& window);
 	void loadMap();
-	void loadGUI();
+	void loadGUI(Window& window);
 	void render(Window& window);
 	void renderGUI(Window& window);
 	void positionView(Window& window);

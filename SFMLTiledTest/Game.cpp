@@ -1,8 +1,8 @@
 #include "Game.h"
 #include <SFML/Graphics.hpp>
 #include "Utils.h"
-#include <iostream>
 #include <algorithm>
+#include <string>
 
 const std::string& MAP_FILENAME = "assets/map.tmx";
 const std::string& FONT_FILENAME = "assets/arial.ttf";
@@ -12,7 +12,7 @@ float scrollSensitivity = 0.1f;
 Game::Game(Window& window)
 {
     loadMap();
-    loadGUI();
+    loadGUI(window);
 
     positionView(window);
 }
@@ -27,12 +27,19 @@ void Game::loadMap()
     }
 }
 
-void Game::loadGUI()
+void Game::loadGUI(Window& window)
 {
     if (font.loadFromFile(FONT_FILENAME)) {
-        sf::String mapText = map.loaded ? "MAP = " + MAP_FILENAME : "[ERROR] FAILED TO LOAD MAP = " + MAP_FILENAME;
+        std::string windowTitle = window.title;
+        std::transform(windowTitle.begin(), windowTitle.end(), windowTitle.begin(), ::toupper);
+
+        std::string mapFileName = MAP_FILENAME;
+        std::transform(mapFileName.begin(), mapFileName.end(), mapFileName.begin(), ::toupper);
+
+        std::string mapText = map.loaded ? "MAP = " + mapFileName : "[ERROR] FAILED TO LOAD MAP = " + mapFileName;
+
         instructions.setFont(font);
-        instructions.setString("PAN = WASD/ARROW KEYS\nZOOM = MOUSE WHEEL UP/DOWN\nRESET PAN = SPACEBAR KEY\nRESET ZOOM = MOUSE WHEEL CLICK\nEXIT = ESC KEY\n\n" + mapText);
+        instructions.setString(windowTitle + "\n\nPAN = WASD/ARROW KEYS\nZOOM = MOUSE WHEEL UP/DOWN\nRESET PAN = SPACEBAR KEY\nRESET ZOOM = MOUSE WHEEL CLICK\nEXIT = ESC KEY\n\n" + mapText);
         instructions.setPosition(10, 10);
         instructions.setCharacterSize(14);
         instructions.setFillColor(sf::Color::White);
