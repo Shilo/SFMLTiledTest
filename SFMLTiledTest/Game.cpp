@@ -3,7 +3,7 @@
 #include "Utils.h"
 
 Game::Game() {
-    map.load("demo.tmx");
+    map.load("island.tmx");
 }
 
 void Game::render(sf::RenderWindow &window) {
