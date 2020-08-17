@@ -20,6 +20,7 @@ void render()
 {
     (*window).render();
     (*game).render((*window));
+    (*window).renderGUI();
     (*window).display();
 }
 

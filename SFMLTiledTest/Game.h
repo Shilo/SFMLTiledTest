@@ -11,7 +11,14 @@ public:
 	float defaultZoom;
 
 	Game(Window& window);
+	void loadMap();
+	void loadGUI();
 	void render(Window& window);
+	void renderGUI(Window& window);
 	void positionView(Window& window);
 	void onEvent(sf::Event event, Window& window);
+
+private:
+	sf::Font font;
+	sf::Text instructions;
 };

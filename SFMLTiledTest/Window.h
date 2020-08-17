@@ -13,6 +13,7 @@ public:
 	Window(bool fullscreen, float zoomFactor);
 	void update();
 	void render();
+	void renderGUI();
 	void setViewCenter(int x, int y);
 
 private:

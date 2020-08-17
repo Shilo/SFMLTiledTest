@@ -46,6 +46,18 @@ void Window::render()
     clear();
 }
 
+void Window::renderGUI()
+{
+    sf::View lastView = getView();
+    sf::FloatRect visibleArea(0, 0, getSize().x, getSize().y);
+    sf::View view = sf::View(visibleArea);
+    setView(view);
+
+    game->renderGUI(*this);
+
+    setView(lastView);
+}
+
 void Window::setViewCenter(int x, int y) {
     viewCenterX = x;
     viewCenterY = y;
