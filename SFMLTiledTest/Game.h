@@ -5,4 +5,6 @@ class Game
 public:
 	Game();
 	void loop(sf::RenderWindow &window);
+private:
+	void renderMap(sf::RenderWindow& window);
 };

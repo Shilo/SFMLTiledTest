@@ -1,2 +1,6 @@
 #pragma once
-void log(const char* format, ...);
+class Utils
+{
+public:
+	static void log(const char* format, ...);
+};
