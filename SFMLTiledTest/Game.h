@@ -6,8 +6,11 @@ class Game
 {
 public:
 	Map map;
+	int centerX;
+	int centerY;
 
 	Game(Window& window);
 	void render(Window& window);
 	void positionView(Window& window);
+	void onEvent(sf::Event event, Window& window);
 };

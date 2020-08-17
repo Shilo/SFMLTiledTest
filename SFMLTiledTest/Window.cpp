@@ -1,6 +1,7 @@
 #include "Window.h"
 #include <SFML/Graphics.hpp>
 #include "Utils.h"
+#include "Game.h"
 
 Window::Window()
    : sf::RenderWindow(sf::VideoMode().getDesktopMode(),
@@ -34,9 +35,12 @@ void Window::render()
     {
         if (event.type == sf::Event::Closed || event.key.code == sf::Keyboard::Escape)
             close();
-        if (event.type == sf::Event::Resized)
+        else if (event.type == sf::Event::Resized)
         {
             update();
+        }
+        else if (game != NULL) {
+            game->onEvent(event, *this);
         }
     }
     clear();
