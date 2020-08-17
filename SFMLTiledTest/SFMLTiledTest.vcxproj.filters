@@ -48,4 +48,22 @@
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="assets\beach_tileset.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="assets\arial.ttf">
+      <Filter>Resource Files</Filter>
+    </Font>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\beach_tileset.tsx">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="assets\map.tmx">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
 </Project>

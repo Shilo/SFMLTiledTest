@@ -164,6 +164,24 @@
     <ClInclude Include="Utils.h" />
     <ClInclude Include="Window.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="assets\beach_tileset.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="assets\arial.ttf">
+      <DeploymentContent>true</DeploymentContent>
+    </Font>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\beach_tileset.tsx">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="assets\map.tmx">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
