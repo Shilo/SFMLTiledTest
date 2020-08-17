@@ -8,7 +8,7 @@
 
 bool Map::load(const std::string& fileName)
 {
-    loaded = map.load("assets/maps/"+ fileName);
+    loaded = map.load(fileName);
     if (!loaded) {
         Utils::log("Error: Map failed to load.");
     }

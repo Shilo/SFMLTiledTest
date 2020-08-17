@@ -4,8 +4,8 @@
 #include <iostream>
 #include <algorithm>
 
-const std::string& MAP_FILENAME = "island.tmx";
-const std::string& FONT_FILENAME = "assets/fonts/arial.ttf";
+const std::string& MAP_FILENAME = "assets/map.tmx";
+const std::string& FONT_FILENAME = "assets/arial.ttf";
 int moveSpeed = 10;
 float scrollSensitivity = 0.1f;
 
@@ -30,8 +30,9 @@ void Game::loadMap()
 void Game::loadGUI()
 {
     if (font.loadFromFile(FONT_FILENAME)) {
+        sf::String mapErrorText = !map.loaded ? "\n\n[Error] Failed to load map: " + MAP_FILENAME : "";
         instructions.setFont(font);
-        instructions.setString("PAN = WASD/ARROW KEYS\nZOOM = MOUSE WHEEL UP/DOWN\nRESET PAN = SPACEBAR KEY\nRESET ZOOM = MOUSE WHEEL CLICK\nEXIT = ESC KEY");
+        instructions.setString("PAN = WASD/ARROW KEYS\nZOOM = MOUSE WHEEL UP/DOWN\nRESET PAN = SPACEBAR KEY\nRESET ZOOM = MOUSE WHEEL CLICK\nEXIT = ESC KEY" + mapErrorText);
         instructions.setPosition(10, 10);
         instructions.setCharacterSize(14);
         instructions.setFillColor(sf::Color::White);
