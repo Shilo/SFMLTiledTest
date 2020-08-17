@@ -23,6 +23,7 @@ void Window::update()
 {
     sf::FloatRect visibleArea(0, 0, getSize().x * zoomFactor, getSize().y * zoomFactor);
     sf::View view = sf::View(visibleArea);
+    view.setCenter(sf::Vector2f(viewCenterX, viewCenterY));
     setView(view);
 }
 
@@ -39,4 +40,10 @@ void Window::render()
         }
     }
     clear();
+}
+
+void Window::setViewCenter(int x, int y) {
+    viewCenterX = x;
+    viewCenterY = y;
+    update();
 }

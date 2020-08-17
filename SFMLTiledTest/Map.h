@@ -1,6 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <tmxlite/Map.hpp>
+#include "Window.h"
 class Map
 {
 public:
@@ -8,6 +9,6 @@ public:
 	bool loaded;
 
 	bool load(const std::string& fileName);
-	void render(sf::RenderWindow& window);
+	void render(Window& window);
 };
 

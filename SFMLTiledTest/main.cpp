@@ -3,7 +3,7 @@
 #include "Window.h"
 
 const bool FULLSCREEN = true;
-const float ZOOM_FACTOR = 0.5f;
+const float ZOOM_FACTOR = 1.0f;
 
 Window *window;
 Game *game;
@@ -11,7 +11,7 @@ Game *game;
 void init()
 {
     window = new Window(FULLSCREEN, ZOOM_FACTOR);
-    game = new Game();
+    game = new Game((*window));
 }
 
 void render()

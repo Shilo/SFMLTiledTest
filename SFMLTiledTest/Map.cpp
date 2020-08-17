@@ -15,11 +15,12 @@ bool Map::load(const std::string& fileName)
     return loaded;
 }
 
-void Map::render(sf::RenderWindow& window)
+void Map::render(Window &window)
 {
     if (!loaded) return;
 
     const auto& layers = map.getLayers();
+
     int layerIndex = 0;
 
     for (const auto& layer : layers)
