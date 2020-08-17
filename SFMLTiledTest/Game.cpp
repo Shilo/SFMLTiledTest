@@ -1,9 +1,12 @@
 #include "Game.h"
 #include <SFML/Graphics.hpp>
 #include "Utils.h"
+#include <iostream>
+#include <algorithm>
 
 const std::string& MAP_FILENAME = "island.tmx";
 int moveSpeed = 10;
+float scrollSensitivity = 0.1f;
 
 Game::Game(Window& window)
 {
@@ -59,7 +62,15 @@ void Game::onEvent(sf::Event event, Window& window) {
                 centerY = bounds.height / 2;
                 positionView(window);
             }
-
         }
+    }
+    else if (event.type == sf::Event::MouseWheelScrolled && event.mouseWheelScroll.wheel == sf::Mouse::VerticalWheel)
+    {
+        float scrollDelta = -event.mouseWheelScroll.delta * scrollSensitivity;
+        window.zoomFactor = std::min(std::max(0.1f, window.zoomFactor+scrollDelta), 5.0f);
+    }
+    else if (event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Middle)
+    {
+        window.zoomFactor = defaultZoom;
     }
 }

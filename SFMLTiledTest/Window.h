@@ -7,6 +7,7 @@ class Window : public sf::RenderWindow
 {
 public:
 	Game *game;
+	float zoomFactor = 1.0f;
 
 	Window();
 	Window(bool fullscreen, float zoomFactor);
@@ -15,7 +16,6 @@ public:
 	void setViewCenter(int x, int y);
 
 private:
-	float zoomFactor = 1.0f;
 	int viewCenterX = 0;
 	int viewCenterY = 0;
 };

@@ -8,6 +8,7 @@ public:
 	Map map;
 	int centerX;
 	int centerY;
+	float defaultZoom;
 
 	Game(Window& window);
 	void render(Window& window);
