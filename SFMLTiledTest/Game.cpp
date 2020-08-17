@@ -30,9 +30,9 @@ void Game::loadMap()
 void Game::loadGUI()
 {
     if (font.loadFromFile(FONT_FILENAME)) {
-        sf::String mapErrorText = !map.loaded ? "\n\n[Error] Failed to load map: " + MAP_FILENAME : "";
+        sf::String mapText = map.loaded ? "MAP = " + MAP_FILENAME : "[ERROR] FAILED TO LOAD MAP = " + MAP_FILENAME;
         instructions.setFont(font);
-        instructions.setString("PAN = WASD/ARROW KEYS\nZOOM = MOUSE WHEEL UP/DOWN\nRESET PAN = SPACEBAR KEY\nRESET ZOOM = MOUSE WHEEL CLICK\nEXIT = ESC KEY" + mapErrorText);
+        instructions.setString("PAN = WASD/ARROW KEYS\nZOOM = MOUSE WHEEL UP/DOWN\nRESET PAN = SPACEBAR KEY\nRESET ZOOM = MOUSE WHEEL CLICK\nEXIT = ESC KEY\n\n" + mapText);
         instructions.setPosition(10, 10);
         instructions.setCharacterSize(14);
         instructions.setFillColor(sf::Color::White);
